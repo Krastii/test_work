@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import { connect } from "react-redux";
+import Counter from "./Components/Counter";
+import changeCounter from "./store/actions";
+import "./App.css";
 
-function App() {
+const mapStateToProps = (store) => {
+  return {
+    counters: store.counters,
+  };
+};
+
+function App({ dispatch, counters }) {
+  //console.log(changeCounter(dispatch).addCounter(), "counters");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div className='App'>
+      <p>Делаем приложуху</p>
+      <button
+        onClick={() => {
+          changeCounter(dispatch).addCounter(counters.length);
+        }}
+      >
+        Add counter
+      </button>
+      {counters.map((item) => {
+        return (
+            <Counter key={item.id} counter={item} dispatch={dispatch} />
+        );
+      })}
+      <div>
+        { counters[0] && <button
+          onClick={() => {
+            changeCounter(dispatch).deleteCounter(counters[counters.length - 1].id);
+          }}
         >
-          Learn React
-        </a>
-      </header>
+          Delete last counter
+        </button>}
+      </div>
     </div>
   );
 }
 
-export default App;
+export default connect(mapStateToProps)(App);
