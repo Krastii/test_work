@@ -1,4 +1,31 @@
 # Getting Started with Create React App
+In the project directory, you can run:
+
+### `npm start`
+
+It is necessary to implement an application for working with counter elements.
+
+The app must be implemented using react-redux;
+
+· The counter element contains the '+' and '-' buttons, which increase and decrease its value;
+
+· Counters can be added or removed from the page;
+
+· Every fourth counter on the page does not contain the + and - buttons, and every second increases its value by one;
+
+· When adding a new counter to the page, its value will be equal to the sum of the values ​​of all other counters on the page (for example, on the page there are two counters with values ​​3 and 7, the new counter will have a value of 10);
+
+· Counter data must be stored in the global state (reducer);
+
+The design is not important.
+
+The result of the task execution should be an npm package with the implemented application.
+
+The package.json file should contain a command to launch the application for viewing in a browser.
+
+Important: the application must be written using ES6 / Typescript syntax.
+
+The result can be sent as an archive or as a link to an external resource (for example, github) 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
